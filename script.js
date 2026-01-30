@@ -20,7 +20,6 @@ function calculate() {
   }
 }
 
-/* Keyboard support */
 document.addEventListener("keydown", (e) => {
   if (
     (e.key >= "0" && e.key <= "9") ||
