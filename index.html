@@ -2,38 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Animated Calculator</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+  <!-- Ambient Animated Glow Background -->
+  <div class="bg-orbs-container">
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+  </div>
+
   <div class="calculator">
-    <input type="text" id="display" disabled />
+    <!-- Header with Theme Selector -->
+    <div class="calc-header">
+      <div class="calc-title">
+        <span class="status-dot"></span>
+        <span>CALC</span>
+      </div>
+      <div class="theme-selector" title="Choose color theme">
+        <button class="theme-btn active" data-theme="aurora" title="Aurora Glow"></button>
+        <button class="theme-btn" data-theme="sunset" title="Sunset Neon"></button>
+        <button class="theme-btn" data-theme="cyber" title="Cyberpunk"></button>
+        <button class="theme-btn" data-theme="midnight" title="Midnight Gold"></button>
+      </div>
+    </div>
 
+    <!-- Screen Display -->
+    <div class="display-container">
+      <div class="sub-display" id="sub-display"></div>
+      <input type="text" id="display" placeholder="0" readonly />
+    </div>
+
+    <!-- Keypad -->
     <div class="buttons">
-      <button class="btn gray" onclick="clearDisplay()">C</button>
-      <button class="btn gray" onclick="deleteLast()">DEL</button>
-      <button class="btn gray" onclick="append('%')">%</button>
-      <button class="btn operator" onclick="append('/')">÷</button>
+      <button class="btn gray" data-key="Escape" onclick="clearDisplay()">C</button>
+      <button class="btn gray" data-key="Backspace" onclick="deleteLast()">DEL</button>
+      <button class="btn gray" data-key="%" onclick="append('%')">%</button>
+      <button class="btn operator" data-key="/" onclick="append('/')">÷</button>
 
-      <button class="btn" onclick="append('7')">7</button>
-      <button class="btn" onclick="append('8')">8</button>
-      <button class="btn" onclick="append('9')">9</button>
-      <button class="btn operator" onclick="append('*')">×</button>
+      <button class="btn" data-key="7" onclick="append('7')">7</button>
+      <button class="btn" data-key="8" onclick="append('8')">8</button>
+      <button class="btn" data-key="9" onclick="append('9')">9</button>
+      <button class="btn operator" data-key="*" onclick="append('*')">×</button>
 
-      <button class="btn" onclick="append('4')">4</button>
-      <button class="btn" onclick="append('5')">5</button>
-      <button class="btn" onclick="append('6')">6</button>
-      <button class="btn operator" onclick="append('-')">−</button>
+      <button class="btn" data-key="4" onclick="append('4')">4</button>
+      <button class="btn" data-key="5" onclick="append('5')">5</button>
+      <button class="btn" data-key="6" onclick="append('6')">6</button>
+      <button class="btn operator" data-key="-" onclick="append('-')">−</button>
 
-      <button class="btn" onclick="append('1')">1</button>
-      <button class="btn" onclick="append('2')">2</button>
-      <button class="btn" onclick="append('3')">3</button>
-      <button class="btn operator" onclick="append('+')">+</button>
+      <button class="btn" data-key="1" onclick="append('1')">1</button>
+      <button class="btn" data-key="2" onclick="append('2')">2</button>
+      <button class="btn" data-key="3" onclick="append('3')">3</button>
+      <button class="btn operator" data-key="+" onclick="append('+')">+</button>
 
-      <button class="btn zero" onclick="append('0')">0</button>
-      <button class="btn" onclick="append('.')">.</button>
-      <button class="btn equal" onclick="calculate()">=</button>
+      <button class="btn zero" data-key="0" onclick="append('0')">0</button>
+      <button class="btn" data-key="." onclick="append('.')">.</button>
+      <button class="btn equal" data-key="Enter" onclick="calculate()">=</button>
     </div>
   </div>
 
